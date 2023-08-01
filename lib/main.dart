@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:toonflix/Widgets/upBtn.dart';
 import 'Widgets/MyButton.dart';
 import 'Widgets/MyCard.dart';
 
@@ -142,7 +143,11 @@ class App extends StatelessWidget {
                     textColor: Colors.white,
                     cur_icon: Icons.attach_money_rounded,
                   ),
-                )
+                ),
+                const SizedBox(
+                  height: 50,
+                ),
+                const UpBtn(),
               ],
             ),
           ),
