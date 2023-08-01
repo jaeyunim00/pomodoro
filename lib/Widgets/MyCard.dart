@@ -48,7 +48,7 @@ class MyCard extends StatelessWidget {
                     Text(
                       price,
                       style: TextStyle(
-                        color: textColor,
+                        color: Theme.of(context).textTheme.titleLarge!.color,
                         fontSize: 20,
                       ),
                     ),

@@ -7,14 +7,33 @@ void main() {
   runApp(const App());
 }
 
-class App extends StatelessWidget {
+class App extends StatefulWidget {
   const App({super.key});
 
+  @override
+  State<App> createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+  bool show_title = true;
+
+  void toggle_btn() {
+    setState(() {
+      show_title = !show_title;
+    });
+  }
+
   //빌드메서드는 말그데로 만들어서 화면에 보여지게 해주는 메서드이다.
-  //부모 클래스에있는 메소드를 오버라이드한다.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        textTheme: const TextTheme(
+          titleLarge: TextStyle(
+            color: Colors.red,
+          ),
+        ),
+      ),
       home: Scaffold(
         backgroundColor: const Color(0xFF181818),
         body: SingleChildScrollView(
@@ -147,7 +166,18 @@ class App extends StatelessWidget {
                 const SizedBox(
                   height: 50,
                 ),
-                const UpBtn(),
+                show_title
+                    ? const UpBtn()
+                    : const Text(
+                        "nothing",
+                        style: TextStyle(color: Colors.white, fontSize: 40),
+                      ),
+                IconButton(
+                  onPressed: toggle_btn,
+                  icon: const Icon(Icons.remove_red_eye),
+                  color: Colors.white,
+                  iconSize: 50,
+                )
               ],
             ),
           ),

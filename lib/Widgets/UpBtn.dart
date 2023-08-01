@@ -16,6 +16,20 @@ class _MyWidgetState extends State<UpBtn> {
   }
 
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    print("init state runned");
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    print("disposed!");
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 200,
